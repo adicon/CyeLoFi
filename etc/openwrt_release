@@ -1,6 +1,0 @@
-DISTRIB_ID="OpenWrt"
-DISTRIB_RELEASE="Bleeding Edge"
-DISTRIB_REVISION="r32130"
-DISTRIB_CODENAME="attitude_adjustment"
-DISTRIB_TARGET="ar71xx/generic"
-DISTRIB_DESCRIPTION="OpenWrt Attitude Adjustment r32130"
