@@ -42,7 +42,7 @@ if test -n "$HASERL_uploadfile_path"; then
 <% 
    echo "<p>Processing file $FORM_uploadfile_name</p>"
    ext=`echo -n $FORM_uploadfile_name | awk -F . '{ print $NF }'`
-   if [ "$ext" == "zgt" ]; then
+   if [ "$ext" == "cfi" ]; then
       # correct file type
       mkdir /tmp/upd
       echo "<p>Extracting files..."
@@ -50,13 +50,13 @@ if test -n "$HASERL_uploadfile_path"; then
       # Deleting uploaded file
       rm -f $HASERL_uploadfile_path
       if test -f "/tmp/upd/setup.sh"; then
-         echo "<br />Installing..."
+         echo "<br />Updating..."
          cd /tmp/upd/
          /bin/sh /tmp/upd/setup.sh
          # Deleting temp dir
-         #rm -fR /tmp/upd/
+         rm -fR /tmp/upd/
          echo "<br />Done!<br /><br /><span style='color:#66CC66;'><b>Rebooting... </b>Please wait <span id='countdown'>50</span> seconds.</span>"
-         #reboot
+         reboot
       else
          echo "<br /><br /><b>Error in package, setup file not found.</b>"
          # Deleting temp dir

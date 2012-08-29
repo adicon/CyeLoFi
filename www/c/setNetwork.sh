@@ -47,7 +47,7 @@ if [ $QUERY_STRING ]; then
 
 	# validate data
 	if [ $channel -lt 15 ]; then ${ucidev}channel=$channel; fi
-	if [ &ssid//[^a-zA-Z0-9]/ ]; then ${uciif}ssid=${ssid//[^a-zA-Z0-9]/}; fi
+	if [ $ssid//[^a-zA-Z0-9]/ ]; then ${uciif}ssid=${ssid//[^a-zA-Z0-9]/}; fi
 	if [ $txpower -lt 20 ]; then ${ucidev}txpower=$txpower; fi
 	if [ $encryption ]; then ${uciif}encryption="psk2"; else ${uciif}encryption="none"; fi
 	if [ $key ]; then ${uciif}key=$key; else ${uciif}key=""; ${uciif}encryption="none"; fi
@@ -65,6 +65,6 @@ if [ $QUERY_STRING ]; then
 fi
 
 
-echo "<html><header><meta http-equiv='refresh' content='5; url=/c/index.sh'/></header><body>Network restarting, please wait 5 seconds.</body></html>"
+echo "<html><header><meta http-equiv='refresh' content='5; url=/c/index.sh'/></header><body>$ssid<br />Network restarting, please wait 5 seconds.</body></html>"
 
 exit 0
