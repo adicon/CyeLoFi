@@ -3,16 +3,24 @@
 
 # First boot init procedure
 
-# Change SSID of the WiFi
+# WiFi configuration
+#   Regenerate configuration file
+rm -f /etc/config/wireless
+wifi detect > /etc/config/wireless
+#   Enable WiFi
+uci set wireless.@wifi-device[0].disabled=0
+#   Change SSID
 uci set wireless.@wifi-iface[0].ssid="CyeLoFi-`ifconfig wlan0 | grep HWaddr | awk -F ":" '{print $6 $7}' | cut -d ' ' -f1`"
+#   Change Tx power
+uci set wireless.@wifi-device[0].txpower=1
+#   Commit changes
 uci commit wireless
 
 # Create security backup in /root
-tar -czv /etc/config/* /etc/ser2net.conf -f /root/backup.tgz
+tar -czvT /etc/sysupgrade.conf -f /root/backup.tgz
 
-# Enable uhttpd and create file directory
+# Enable uhttpd
 /etc/init.d/uhttpd enable
-mkdir /www
 
 # Remove rc.local first boot and restore normal rc.local
 mv /etc/rc.local.postinit /etc/rc.local
