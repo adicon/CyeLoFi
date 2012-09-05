@@ -19,8 +19,9 @@ uci commit wireless
 # Create security backup in /root
 tar -czvT /etc/sysupgrade.conf -f /root/backup.tgz
 
-# Enable uhttpd
+# Enable uhttpd and make script executables
 /etc/init.d/uhttpd enable
+chmod a+x /www/c/*.sh
 
 # Remove rc.local first boot and restore normal rc.local
 mv /etc/rc.local.postinit /etc/rc.local

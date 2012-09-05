@@ -47,7 +47,7 @@ if [ $QUERY_STRING ]; then
 
 	# validate data
 	if [ $channel -lt 15 ]; then ${ucidev}channel=$channel; fi
-	if [ $ssid//[^a-zA-Z0-9]/ ]; then ${uciif}ssid=${ssid//[^a-zA-Z0-9]/}; fi
+	if [ $ssid//[^a-zA-Z0-9\-._]/ ]; then ${uciif}ssid=${ssid//[^a-zA-Z0-9\-._]/}; fi
 	if [ $txpower -lt 20 ]; then ${ucidev}txpower=$txpower; fi
 	if [ $encryption ]; then ${uciif}encryption="psk2"; else ${uciif}encryption="none"; fi
 	if [ $key ]; then ${uciif}key=$key; else ${uciif}key=""; ${uciif}encryption="none"; fi

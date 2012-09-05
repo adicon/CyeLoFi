@@ -184,17 +184,19 @@ function setSelectByValue( formName, elemName, defVal ) {
 <div id="about" title="About <% echo $HOSTNAME %>">
 <div style="text-align: center;">
 <img src="/CyeLoFi_128.png" alt="logo" width="128" height="128"><br />
-<h3><% echo $HOSTNAME %></h3>
-A <i>poor man</i> SkyFi clone by Andrea Di Dato<br />
+<p><span style="font-size:1.5em; color:#0275E8;"><% echo $HOSTNAME %></span><br 
+<i style="font-size:1.2em; color:#5EAAF7;">Liberate your telescope</i><br />    
+<span style="font-size:0.9em;">Copyright 2012 Andrea Di Dato</span></p> 
 </div>
 <br />
 Contacts:<br />
- &nbsp; <a href="mailto:a.didato@gmail.com">a.didato@gmail.com</a><br />
+ &nbsp; <a href="mailto:adicon74@gmail.com">e-mail</a><br />
  &nbsp; <a href="http://adicon.lahost.org/" target="_blank">web site</a><br />
  &nbsp; <a href="http://adicon.lahost.org/<% echo $HOSTNAME %>/" target="_blank"><% echo $HOSTNAME %> project page</a><br />
 <br />
 <span style="font-size:0.8em;">
 Credits:<br />
+ &nbsp; Software released under GNU <a href="http://www.gnu.org/licenses/gpl.html">GPLv3</a> license<br />
  &nbsp; Web interface powered by <a href="http://www.iui-js.org/" target="_blank">iUI web framework</a><br />
  &nbsp; Linux free operative system by <a href="http://openwrt.org/">OpenWRT</a><br />
 </span>
