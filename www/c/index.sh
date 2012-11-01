@@ -159,6 +159,11 @@ function setSelectByValue( formName, elemName, defVal ) {
   OS version: <span class="sysFont">
   <% uname -a %>
   </span><br />
+  OpenWrt version: <span class="sysFont">
+  <% grep DISTRIB_ID /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
+  <% grep DISTRIB_RELEASE /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
+  <% grep DISTRIB_REVISION /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
+  </span><br />
   System uptime: <span class="sysFont">
   <% uptime %>
   </span><br />

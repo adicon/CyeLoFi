@@ -26,7 +26,7 @@ if [ $QUERY_STRING ]; then
 
 	# validate TTY device
 	if [ -c $com ]; then
-		echo -e "\n\n$port:raw:0:$com:$baud,8DATABITS,NONE,1STOPBIT,LOCAL\n\n" > $inifile
+		echo -e "\n\n$port:raw:0:$com:$baud,NONE,1STOPBIT,8DATABITS,-XONXOFF,-RTSCTS,LOCAL\n\n" > $inifile
 		pidser=`ps | grep ser2net | grep -v grep | cut -d' ' -f2`
 		kill -HUP $pidser
 	fi
