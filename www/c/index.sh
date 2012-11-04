@@ -111,7 +111,7 @@ function setSelectByValue( formName, elemName, defVal ) {
         <option value="115200">115200</option>
       </select></p>
       <p><label for="tty">RS-232 port:</label>
-      <% for f in /dev/ttyUSB*; do if [ -c $f ]; then echo "<input type="radio" id="tty" name="tty" value="$f" />`echo $f | cut -d '/' -f3`"; else echo '<i>no serial port found</i>'; fi; done %></p>
+      <% for f in /dev/ttyUSB*; do if [ -c $f ]; then echo "<input type='radio' id='tty' name='tty' value='"$f"' />`echo $f | cut -d '/' -f3`"; else echo '<i>no serial port found</i>'; fi; done %></p>
     </div>                                                                                                                           
   </fieldset>
   <a class="whiteButton" href="javascript:document.serial.submit()">Apply</a>
@@ -160,9 +160,8 @@ function setSelectByValue( formName, elemName, defVal ) {
   <% uname -a %>
   </span><br />
   OpenWrt version: <span class="sysFont">
-  <% grep DISTRIB_ID /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
-  <% grep DISTRIB_RELEASE /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
-  <% grep DISTRIB_REVISION /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
+  <% grep DISTRIB_DESCRIPTION /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %>
+  ( <% grep DISTRIB_REVISION /etc/openwrt_release | cut -d '"' -f2 | tr -d '"' %> )
   </span><br />
   System uptime: <span class="sysFont">
   <% uptime %>
@@ -208,8 +207,8 @@ Credits:<br />
 </div>
 
 <script type="text/javascript">
-  setSelectByValue('serial', 'tty', '<% tail -3 /etc/ser2net.conf | tr -s '\n' | cut -d ':' -f4 | tr -d '\n' %>');
-  setSelectByValue('serial', 'baud', '<% tail -3 /etc/ser2net.conf | tr -s '\n' | cut -d ':' -f5 | cut -d ',' -f1 | tr -d '\n' %>');
+  setSelectByValue('serial', 'tty', '<% grep tty /etc/ser2net.conf | cut -d ':' -f4 | tr -d '\n' %>');
+  setSelectByValue('serial', 'baud', '<% grep tty /etc/ser2net.conf | cut -d ':' -f5 | cut -d ',' -f1 | tr -d '\n' %>');
   setSelectByValue('network', 'channel', '<% uci get wireless.@wifi-device[0].channel | tr -d '\n' %>');
   setSelectByValue('network', 'txpower', '<% uci get wireless.@wifi-device[0].txpower | tr -d '\n' %>');
 </script>
