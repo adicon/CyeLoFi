@@ -24,6 +24,7 @@ tar -czvT /etc/sysupgrade.conf -f /root/backup.tgz
 chmod a+x /www/c/*.sh
 
 # Remove rc.local first boot and restore normal rc.local
+rm /etc/rc.local
 mv /etc/rc.local.postinit /etc/rc.local
 
 #final reboot to apply mods
