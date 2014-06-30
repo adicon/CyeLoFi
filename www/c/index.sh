@@ -170,7 +170,9 @@ function setSelectByValue( formName, elemName, defVal ) {
   RAM <% echo $((`grep MemFree /proc/meminfo | awk '{ print $2 }'`*100/`grep MemTotal /proc/meminfo | awk '{ print $2 }'`))% %>
   - disk <% echo $((100-`df | grep rootfs | awk '{ print $5 }' | tr -d '%'`))% %>
   </span><br />
-  Ser2Net configuration: <span class="sysFont">
+  Ser2Net <span class="sysFont">
+  <% netstat -ant | grep -q `cut -d ":" -f 1 /etc/ser2net.conf | tr -d "\n"` ; if [ "$?" = "0" ]; then echo "listening"; else echo "NOT listening" ; fi %>
+  </span> configuration: <span class="sysFont">
   <% tail -3 /etc/ser2net.conf | tr -s '\n' %>
   </span><br />
   USB connected device(s):<span class="sysFont">
