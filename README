@@ -1,5 +1,5 @@
 CyeLoFi copyright 2012 Andrea Di Dato
-http://adicon.lahost.org/
+http://adicon.it/
 
 CyeLoFi is an open source project to remotely control your telescope with any
 smart device like phones and PDAs.
@@ -24,7 +24,7 @@ software layer needed to hack an OpenWRT supported hardware and made it able
 to connect to your telescope mount and give access to it throught WiFi.
 
 For a steep by steep guide to build your own CyeLoFi, please visit:
-   http://adicon.lahost.org/CyeLoFi
+   http://adicon.it/CyeLoFi
    https://github.com/adicon/CyeLoFi/wiki
 
 
